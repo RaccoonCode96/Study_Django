@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block contents %}
+<div class="row mt-5">
+    <div class="col-12">
+        <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>제목</th>
+                    <th>아이디</th>
+                    <th>일시</th>
+                </tr>
+            </thead>
+            <tbody class="text-dark">
+                {% for board in boards %}
+                <tr>
+                    <th>{{ board.id }}</th>
+                    <td>{{ board.title }}</td>
+                    <td>{{ board.writer }}</td>
+                    <td>{{ board.registered_dttm }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 글쓰기 버튼 -->
+<div class="row">
+    <div class="col-12">
+        <buttton class="btn btn-primary">글쓰기</buttton>
+    </div>
+</div>
+{% endblock %}
+
