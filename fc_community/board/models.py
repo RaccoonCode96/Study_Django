@@ -5,7 +5,7 @@ from django.db import models
 
 class Board(models.Model):
     title = models.CharField(max_length=128, verbose_name='제목')
-    contexts = models.TextField(verbose_name='내용')
+    contents = models.TextField(verbose_name='내용')
     writer = models.ForeignKey(
         'fcuser.Fcuser', on_delete=models.CASCADE, verbose_name='작성자')
     # on_delete=models.CASCADE 는 models의 key가 삭제 되면 해당 모델도 지우겠다.
