@@ -21,7 +21,12 @@ class LoginForm(forms.Form):
         password = cleaned_data.get('password')
 
         if username and password:
-            fcuser = Fcuser.objects.get(username=username)
+            try:
+                fcuser = Fcuser.objects.get(username=username)
+            except Fcuser.DoesNotExist:
+                self.add_error('username', '아이디가 없습니다.')
+                return
+
             if not check_password(password, fcuser.password):
                 # form 안에 기본적으로 있는 add_error()함수로 특정 필드에 error를 넣는 함수임
                 self.add_error('password', '비밀번호가 일치하지 않습니다.')
