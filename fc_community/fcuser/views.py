@@ -11,7 +11,7 @@ def home(request):
 
     if user_id:
         fcuser = Fcuser.objects.get(pk=user_id)  # pk primary key
-        k = fcuser.username
+        k = fcuser
     else:
         k = "로그인이 필요합니다."
     return render(request, 'home.html', {'k': k})

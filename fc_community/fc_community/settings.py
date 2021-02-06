@@ -23,8 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'bq&!p3_+2jl9ot3qsz(qb(9+_lsxivmhz#)!u0*^311^!p!u_1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  # 화면에 개발할때 필요한 정보들을 보여주는지 설정
 
+# pythonanywhere에서 가입한 id 적어주기 또는 주소, 다른 주소로 접속하는 것을 막는 역할
 ALLOWED_HOSTS = []
 
 
@@ -38,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'board',
-    'fcuser'
+    'fcuser',
+    'tag'
 ]
 
 MIDDLEWARE = [
@@ -120,6 +122,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]  # BASE_DIR  이 프로젝트 폴더를 의미, 프로젝트 폴더의 static 폴더
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
+# BASE_DIR  이 프로젝트 폴더를 의미, 프로젝트 폴더의 static 폴더
+
+# 다른 곳에서 받아 올 것이기 때문에
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')

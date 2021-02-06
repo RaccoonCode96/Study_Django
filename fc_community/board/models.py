@@ -9,6 +9,7 @@ class Board(models.Model):
     writer = models.ForeignKey(
         'fcuser.Fcuser', on_delete=models.CASCADE, verbose_name='작성자')
     # on_delete=models.CASCADE 는 models의 key가 삭제 되면 해당 모델도 지우겠다.
+    tags = models.ManyToManyField('tag.Tag', verbose_name='태그')
     registered_dttm = models.DateTimeField(
         auto_now_add=True, verbose_name='등록시간')
 
